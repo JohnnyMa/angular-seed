@@ -3,3 +3,9 @@
   Showing of 'interpolate' filter:
   {{ 'Current version is v%VERSION%.' | interpolate }}
 </p>
+  <div ng-controller="View2Ctrl as post">
+  <form ng-submit="post.addMessage(post.newMessage)">
+    <input type="text" ng-model="post.newMessage">
+    <button type="submit">Add Message</button>
+  </form>
+</div>
