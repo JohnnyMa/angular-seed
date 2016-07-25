@@ -1,0 +1,25 @@
+<p>This is the partial for view 3.</p>
+<p>
+  Showing of 'interpolate' filter:
+  {{ 'Current version is v%VERSION%.' | interpolate }}
+</p>
+
+<div ng-controller="View3Ctrl as test">
+  search by 'name': <input type="text" ng-model="search.name" /><br/>
+  search by 'born': <input type="text" ng-model="search.born" /><br/>
+  search by all attributes: <input type="text" ng-model="search.$" /><br/>
+  <!-- OR use below instead -->
+  <!-- search by all attributes: <input type="text" ng-model="search" /><br/> -->
+
+  <p ng-repeat="person in test.people | filter: search | orderBy: 'name' | limitTo: 5">
+    {{ person.name + "---" + person.born}}
+  </p>
+</div>
+
+<div>
+list with filter('startsWithA'):
+  <p ng-repeat="person in test.people | startsWithA">
+    {{ person.name + "---" + person.born}}
+  </p>
+</div>
+<br/>
